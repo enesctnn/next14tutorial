@@ -1,4 +1,4 @@
-import ImagedArticle from '@/components/ImagedArticle';
+import ImagedArticle from '@/components/article/ImagedArticle';
 import { Button, buttonVariants } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
