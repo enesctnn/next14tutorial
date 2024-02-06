@@ -9,10 +9,10 @@ import { POSTS } from '@/data/POSTS';
 
 type PostProps = (typeof POSTS)[number];
 
+const truncateWithEllipses = (text: string, max: number) =>
+  text.substring(0, max - 1) + (text.length > max ? '...' : '');
+
 function PostCard({ date, description, href, src, title }: PostProps) {
-  function truncateWithEllipses(text: string, max: number) {
-    return text.substr(0, max - 1) + (text.length > max ? '...' : '');
-  }
   return (
     <motion.div
       initial={{ rotateY: -90 }}

@@ -73,7 +73,7 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       spacing: {
-        calc: 'h-[calc(100vh - 200px)] ',
+        calc: 'calc(100vh - 200px)',
       },
       flex: {
         '2': '2 2 0%',

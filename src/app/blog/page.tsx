@@ -1,10 +1,15 @@
 import PostCard from '@/components/postCard/PostCard';
 import { POSTS } from '@/data/POSTS';
+import { Metadata } from 'next';
 import React from 'react';
 
-type Props = {};
 
-function BlogPage({}: Props) {
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'blog page where users shared content',
+};
+
+function BlogPage() {
   return (
     <div className="flex flex-wrap max-sm:justify-center">
       {POSTS.map((post) => (

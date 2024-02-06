@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import ArticleAnimationWrapper from './ArticleAnimationWrapper';
+import SlideAnimationWrapper from '../ui/SlideAnimationWrapper';
+
 type Props = {
   children: ReactNode;
   imagePath: string;
@@ -14,11 +15,9 @@ function ImagedArticle({
   imagePath,
   imagePosition = 'right',
 }: Props) {
-  let content;
-
   if (imagePosition === 'left') {
-    content = (
-      <ArticleAnimationWrapper direction={imagePosition}>
+    return (
+      <SlideAnimationWrapper direction={imagePosition}>
         <div className="flex-1 relative min-w-40">
           <Image
             src={imagePath}
@@ -30,11 +29,11 @@ function ImagedArticle({
           />
         </div>
         <div className="flex-1 flex flex-col gap-12">{children}</div>
-      </ArticleAnimationWrapper>
+      </SlideAnimationWrapper>
     );
   } else if (imagePosition === 'right') {
-    content = (
-      <ArticleAnimationWrapper direction={imagePosition}>
+    return (
+      <SlideAnimationWrapper direction={imagePosition}>
         <div className="flex-1 flex flex-col gap-12">{children}</div>
         <div className="flex-1 relative min-w-40">
           <Image
@@ -46,10 +45,10 @@ function ImagedArticle({
             priority
           />
         </div>
-      </ArticleAnimationWrapper>
+      </SlideAnimationWrapper>
     );
   }
-  return content;
+  return;
 }
 
 export default ImagedArticle;

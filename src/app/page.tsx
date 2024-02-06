@@ -1,9 +1,15 @@
 import ImagedArticle from '@/components/article/ImagedArticle';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {};
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'home page',
+};
 
 function Home({}: Props) {
   return (

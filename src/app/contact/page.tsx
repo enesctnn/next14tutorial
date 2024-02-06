@@ -2,14 +2,19 @@ import ImagedArticle from '@/components/article/ImagedArticle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Metadata } from 'next';
 
-type Props = {};
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'contact is a user form page where users can interact with admins',
+};
 
-function ContactPage({}: Props) {
+function ContactPage() {
   const className = 'border-none rounded-s bg-[#2d2b41] min-w-52';
   return (
     <ImagedArticle imagePath="/contact.png" imagePosition="left">
-      <form action="" className="flex flex-col gap-4">
+      <form action="" className="flex flex-col gap-4 ">
         <Input
           className={className}
           type="text"
