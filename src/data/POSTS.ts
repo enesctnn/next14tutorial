@@ -6,6 +6,7 @@ export const POSTS = [
     description:
       'Women stayed longer, hanging on for years and coming several times a week for the classes. They picked on themselves, the size of their hips, the skin under their chin.',
     href: '/self-care',
+    userId: '1',
   },
   {
     title: 'Sara Miller',
@@ -14,6 +15,7 @@ export const POSTS = [
     description:
       'Sara Miller McCune founded SAGE Publishing in 1965 to support the dissemination of usable knowledge and educate a global community. SAGE is a leading international provider of innovative, high-quality content publishing more than 900 journals and over 800 new books each year, spanning a wide range of subject areas.',
     href: '/sara-miller',
+    userId: '2',
   },
   {
     title: 'ART ?',
@@ -22,6 +24,7 @@ export const POSTS = [
     description:
       'For 180-years, people have been asking the question: is photography art? At an early meeting of the Photographic Society of London, established in 1853, one of the members complained that the new technique was "too literal to compete with works of art" because it was unable to "elevate the imagination". This conception of photography as a mechanical recording medium never fully died away.',
     href: '/art',
+    userId: '3',
   },
   {
     title: 'Sports Are Dying !',
@@ -30,6 +33,7 @@ export const POSTS = [
     description:
       'Which sport is the most evolved? After soccer removed the “fair catch”, the game has remained virtually unchanged.Rugby has tweaked some of it’s laws and has remained essentially the same. Rugby Union has spawned offshoot rugby League and also evolved into Canadian Football and American Football.',
     href: '/sports',
+    userId: '4',
   },
   {
     title: 'DOES IT MATTER ?',
@@ -38,6 +42,7 @@ export const POSTS = [
     description:
       'Why does culture matter? Different churches have their own strengths and weaknesses. And even though we think we have our preferences because they are the right ones to have, healthy churches have a variety of different cultures.',
     href: '/church',
+    userId: '5',
   },
   {
     title: 'I Need some Break',
@@ -46,5 +51,6 @@ export const POSTS = [
     description:
       "The Ministry of Tourism's Research and Statistics Department collects and processes data from proprietary surveys conducted at various ports of entry (i.e. airports, cruise ship ports, marinas) in addition to gathering secondary statistics from tourism partners. These figures are placed into databases and are used to provide relevant information to internal and external clients. ",
     href: '/tourism',
+    userId: '6',
   },
 ];

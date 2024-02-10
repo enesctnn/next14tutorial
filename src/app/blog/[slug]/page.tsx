@@ -1,13 +1,17 @@
+import PostUser from '@/components/postUser/PostUser';
+import SlideAnimationWrapper from '@/components/ui/SlideAnimationWrapper';
 import { POSTS } from '@/data/POSTS';
+import { getPost } from '@/lib/data';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 type BlogDetailsProps = {
   params: { slug: string };
 };
 
 export async function generateMetadata({ params }: BlogDetailsProps) {
-  const blog = POSTS.find((post) => post.href === `/${params.slug}`);
+  const blog = getPost(params.slug);
 
   if (!blog) {
     notFound();
@@ -19,13 +23,13 @@ export async function generateMetadata({ params }: BlogDetailsProps) {
 }
 
 function BlogDetailsPage({ params }: BlogDetailsProps) {
-  const blog = POSTS.find((post) => post.href === `/${params.slug}`);
-
+  // const blog = POSTS.find((post) => post.href === `/${params.slug}`);
+  const blog = getPost(params.slug);
   if (!blog) {
     notFound();
   }
   return (
-    <div className="flex flex-row gap-28 max-md:flex-col max-md:justify-around max-md:min-w-96">
+    <SlideAnimationWrapper direction="right">
       <div className="relative h-80 md:flex-1 md:h-calc ">
         <Image
           src={blog.src}
@@ -44,24 +48,13 @@ function BlogDetailsPage({ params }: BlogDetailsProps) {
             height={50}
             className="object-cover rounded-full"
           />
-          <table className="-mx-8 border-separate border-spacing-1 block">
-            <thead>
-              <tr className="font-bold text-gray-400 text-left">
-                <th>Author</th>
-                <th>Publish</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="font-medium text-gray-300">
-                <td>User Name</td>
-                <td>{blog.date}</td>
-              </tr>
-            </tbody>
-          </table>
+          <Suspense fallback={<p>Loading . . .</p>}>
+            <PostUser date={blog.date} userId={blog.userId} />
+          </Suspense>
         </div>
         <p className="text-xl">{blog.description}</p>
       </div>
-    </div>
+    </SlideAnimationWrapper>
   );
 }
 

@@ -2,7 +2,6 @@ import Counter from '@/components/ui/Counter';
 import ImagedArticle from '@/components/article/ImagedArticle';
 import { Metadata } from 'next';
 
-
 export const metadata: Metadata = {
   title: 'About',
   description: 'about page',
@@ -10,11 +9,13 @@ export const metadata: Metadata = {
 function AboutPage() {
   return (
     <ImagedArticle imagePath="/about.png">
-      <h2 className="text-3xl text-blue-700 font-bold -mb-8">About Agency</h2>
-      <h1 className="text-6xl font-bold leading-snug">
+      <h2 className="text-3xl text-blue-700 font-bold -mb-8 max-md:text-2xl">
+        About Agency
+      </h2>
+      <h1 className="text-6xl max-md:text-5xl max-md:leading-normal font-bold leading-snug">
         We create digital ideas that are bigger, bolder, braver and better
       </h1>
-      <p className="text-xl leading-relaxed ">
+      <p className="text-xl max-md:text-lg leading-relaxed ">
         We create digital ideas that are bigger, bolder, braver and better. We
         believe in good ideas flexibility and precission we&apos;re world&apos;s
         Our Special Team best consulting & finance solution provide. Wide range

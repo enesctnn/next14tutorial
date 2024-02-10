@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 
 function MobileNavItems({ isAdmin, links, session }: NavProps) {
   return (
-    <div className="lg:hidden">
+    <div className="md:hidden">
       <Sheet>
         <SheetTrigger>
           <Menu size={31} />

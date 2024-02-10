@@ -11,7 +11,7 @@ export type NavProps = {
 
 function NavItems({ links, isAdmin, session }: NavProps) {
   return (
-    <div className="hidden lg:flex gap-3 items-center">
+    <div className="hidden md:flex gap-3 items-center">
       {links.map((link) => (
         <NavLink key={link.title} href={link.path} className="rounded-3xl">
           {link.title}

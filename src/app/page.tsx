@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 function Home({}: Props) {
   return (
     <ImagedArticle imagePath="/hero.png">
-      <h1 className="text-8xl font-bold leading-snug">
+      <h1 className="text-8xl font-bold leading-snug max-md:text-6xl">
         Creative Thoughts Agency.
       </h1>
-      <p className="text-[20px]">
+      <p className="text-xl max-md:text-lg">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam laborum
         animi iusto cupiditate vel expedita ut iste, aspernatur recusandae, ab
         suscipit iure libero. Labore obcaecati ipsam unde! Fuga, repudiandae
