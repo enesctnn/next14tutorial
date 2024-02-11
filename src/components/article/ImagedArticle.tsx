@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import SlideAnimationWrapper from '../ui/SlideAnimationWrapper';
+import SlideAnimationWrapper from '../SlideAnimationWrapper';
 
 type Props = {
   children: ReactNode;

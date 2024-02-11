@@ -1,6 +1,5 @@
 import PostUser from '@/components/postUser/PostUser';
-import SlideAnimationWrapper from '@/components/ui/SlideAnimationWrapper';
-import { POSTS } from '@/data/POSTS';
+import SlideAnimationWrapper from '@/components/SlideAnimationWrapper';
 import { getPost } from '@/lib/data';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';

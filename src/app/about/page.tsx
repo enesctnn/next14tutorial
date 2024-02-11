@@ -1,4 +1,4 @@
-import Counter from '@/components/ui/Counter';
+import Counter from '@/components/Counter';
 import ImagedArticle from '@/components/article/ImagedArticle';
 import { Metadata } from 'next';
 
