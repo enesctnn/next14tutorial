@@ -5,7 +5,7 @@ export type LinksT = typeof links;
 
 const links = [
   {
-    title: 'Homepage',
+    title: 'Home',
     path: '/',
   },
   {

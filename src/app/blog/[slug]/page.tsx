@@ -1,6 +1,7 @@
 import PostUser from '@/components/postUser/PostUser';
 import SlideAnimationWrapper from '@/components/SlideAnimationWrapper';
 import { getPost } from '@/lib/data';
+import { IPost } from '@/lib/models';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -10,28 +11,29 @@ type BlogDetailsProps = {
 };
 
 export async function generateMetadata({ params }: BlogDetailsProps) {
-  const blog = getPost(params.slug);
+  const blog = (await getPost(params.slug)) as IPost;
 
   if (!blog) {
     notFound();
   }
   return {
     title: blog.title,
-    description: blog.description,
+    description: blog.desc,
   };
 }
 
-function BlogDetailsPage({ params }: BlogDetailsProps) {
+async function BlogDetailsPage({ params }: BlogDetailsProps) {
   // const blog = POSTS.find((post) => post.href === `/${params.slug}`);
-  const blog = getPost(params.slug);
+  const blog = (await getPost(params.slug)) as IPost;
   if (!blog) {
     notFound();
   }
+
   return (
     <SlideAnimationWrapper direction="right">
       <div className="relative h-80 md:flex-1 md:h-calc ">
         <Image
-          src={blog.src}
+          src={blog.img}
           alt={blog.title}
           fill
           className="object-cover object-center"
@@ -40,18 +42,11 @@ function BlogDetailsPage({ params }: BlogDetailsProps) {
       <div className="md:flex-2 flex flex-col gap-10">
         <h1 className="text-6xl uppercase font-bold">{blog.title}</h1>
         <div className="flex gap-14 items-center">
-          <Image
-            src="/noavatar.png"
-            alt="user avatar"
-            width={50}
-            height={50}
-            className="object-cover rounded-full"
-          />
           <Suspense fallback={<p>Loading . . .</p>}>
-            <PostUser date={blog.date} userId={blog.userId} />
+            <PostUser date={blog.createdAt} userId={blog.userId} />
           </Suspense>
         </div>
-        <p className="text-xl">{blog.description}</p>
+        <p className="text-xl">{blog.desc}</p>
       </div>
     </SlideAnimationWrapper>
   );

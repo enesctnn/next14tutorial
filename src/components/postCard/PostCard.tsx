@@ -1,18 +1,16 @@
 'use client';
 
+import { IPost } from '@/lib/models';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { buttonVariants } from '../ui/button';
-import { cn } from '@/lib/utils';
-import { POSTS } from '@/data/POSTS';
-
-type PostProps = (typeof POSTS)[number];
 
 const truncateWithEllipses = (text: string, max: number) =>
   text.substring(0, max - 1) + (text.length > max ? '...' : '');
 
-function PostCard({ date, description, href, src, title }: PostProps) {
+function PostCard({ createdAt, desc, slug, img, title }: IPost) {
   return (
     <motion.div
       initial={{ rotateY: -90 }}
@@ -26,21 +24,23 @@ function PostCard({ date, description, href, src, title }: PostProps) {
       <div className="flex">
         <div className="w-11/12 h-[400px] relative">
           <Image
-            src={src}
+            src={img}
             alt="title"
             fill
             className="object-cover object-center"
           />
         </div>
-        <span className="select-none rotate-90 -translate-x-48">{date}</span>
+        <span className="select-none rotate-90 -translate-x-48">
+          {createdAt.toString().slice(0, 10).replace(/-/g, '/')}
+        </span>
       </div>
       <div>
         <h1 className="text-2xl font-bold mb-5 uppercase">{title}</h1>
         <p className="text-xs mb-5 text-gray-500 w-11/12 capitalize leading-relaxed">
-          {truncateWithEllipses(description, 150)}
+          {truncateWithEllipses(desc, 150)}
         </p>
         <Link
-          href={`/blog/${href}`}
+          href={`/blog/${slug}`}
           className={cn(
             buttonVariants({ variant: 'link', className: 'p-0 text-cyan-500' })
           )}
